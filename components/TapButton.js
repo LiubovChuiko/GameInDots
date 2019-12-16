@@ -35,8 +35,8 @@ export default class TapButton extends React.Component {
 
 const styles = StyleSheet.create({
   tap_button: {
-    height: 60,
-    width: 60,
+    height: (Platform.OS === 'ios') ? 60 : 55,
+    width: (Platform.OS === 'ios') ? 60 : 55,
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 0,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, TouchableOpacity, StyleSheet, Text, View, TextInput } from 'react-native';
+import { Button, TouchableOpacity, Text, View, TextInput, SafeAreaView } from 'react-native';
 import { Picker } from 'react-native-picker-dropdown';
 import moment from 'moment';
 import axios from 'axios';
@@ -79,7 +79,7 @@ export default class App extends React.Component {
   };
 
   SetNewActiveButton() {
-    const generateRandom = () => {
+      const generateRandom = () => {
       const rndNum = (Math.floor((Math.random() * LevelConstants.tapButtonsCount)));
       const exclude = this.state.playedButtons.find((element) => element === rndNum);
       if (rndNum === exclude) {
@@ -158,7 +158,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
 
           <Picker
                 selectedValue={this.state.level}
@@ -194,7 +194,7 @@ export default class App extends React.Component {
           <View style={styles.msgView}><Text style={styles.score_text}>Leader Board</Text></View>
           <LeaderBoard users={this.state.users} />
 
-        </View>
+        </SafeAreaView>
     );
   };
 };

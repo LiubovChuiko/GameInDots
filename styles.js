@@ -1,13 +1,15 @@
 import React from 'react';
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const screenWidth = Math.round(Dimensions.get('window').width);
 
 export default StyleSheet.create({
     container: {
+        flex: 1,
         flexDirection: 'column',
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 100
+        justifyContent: 'flex-start',
     },
     row: {
         flexDirection: 'row',
@@ -20,9 +22,11 @@ export default StyleSheet.create({
     picker: {
         alignSelf: 'stretch',
         backgroundColor: 'white',
-        paddingHorizontal: 15,
-        paddingVertical: 15,
-        margin: 10,
+        paddingHorizontal: (Platform.OS === 'ios') ? 15 : 0,
+        paddingVertical: (Platform.OS === 'ios') ? 15 : 0,
+        marginTop: 20,
+        marginLeft: 10,
+        marginRight: 10,
         borderWidth: 1,
         borderColor: '#666',
         borderRadius: 5,
@@ -38,7 +42,7 @@ export default StyleSheet.create({
     },
     textinput: {
         paddingHorizontal: 20,
-        width: 185,
+        width: screenWidth * 0.5,
         height: 40,
         borderWidth: 1,
         borderColor: '#666',
@@ -49,7 +53,7 @@ export default StyleSheet.create({
         paddingTop: 5,
         backgroundColor: '#2089dc',
         height: 40,
-        width: 150,
+        width: screenWidth * 0.4,
         borderRadius: 5,
         alignItems: 'center',
     },
@@ -60,7 +64,7 @@ export default StyleSheet.create({
     },
     msgView: {
         top: 5,
-        height: 40,
+        height: (Platform.OS === 'ios') ? 40 : 30,
     },
     boardView: {
         marginTop: 5,

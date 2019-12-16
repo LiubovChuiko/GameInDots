@@ -24,17 +24,12 @@ export default class LeaderBoard extends React.Component {
 
     render()
     {
-
         return (
-
             <View style={styles.boardView}>
-
                 {
                     this.createLeaderBoard()
                 }
             </View>
-
-
         )}
 
 }
